@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewsAI BD</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      color: #172033;
+    }
+    header {
+      background: #123c76;
+      color: white;
+      padding: 28px 16px;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 32px; }
+    nav {
+      background: white;
+      padding: 16px 8px;
+      text-align: center;
+    }
+    nav a {
+      margin: 8px;
+      color: #123c76;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 850px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    .card {
+      background: white;
+      margin: 16px 0;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #0000000b;
+    }
+    .tag { color: #16704a; font-weight: bold; }
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📰 NewsAI BD</h1>
+    <p>বাংলাদেশ ও বিশ্বের খবর, সহজভাবে</p>
+  </header>
+
+  <nav>
+    <a href="#bangladesh">বাংলাদেশ</a>
+    <a href="#world">বিশ্ব</a>
+    <a href="#technology">প্রযুক্তি</a>
+    <a href="#health">স্বাস্থ্য</a>
+  </nav>
+
+  <main>
+    <h2>🔎 খবর খুঁজুন / Search News</h2>
+    <input
+      id="search"
+      type="search"
+      placeholder="খবর বা বিভাগের নাম লিখুন..."
+      oninput="searchNews()"
+    >
+
+    <h2>আপনার নিউজ ফিড</h2>
+
+    <section class="card" id="bangladesh">
+      <p class="tag">🇧🇩 বাংলাদেশ</p>
+      <h3>বাংলাদেশের খবর</h3>
+      <p>এখানে বাংলাদেশের সর্বশেষ খবর যুক্ত করা হবে।</p>
+    </section>
+
+    <section class="card" id="world">
+      <p class="tag">🌍 বিশ্ব সংবাদ</p>
+      <h3>World News</h3>
+      <p>এখানে বিশ্বের গুরুত্বপূর্ণ খবর যুক্ত করা হবে।</p>
+    </section>
+
+    <section class="card" id="technology">
+      <p class="tag">💻 প্রযুক্তি ও AI</p>
+      <h3>Technology News</h3>
+      <p>এখানে প্রযুক্তি ও AI-এর খবর যুক্ত করা হবে।</p>
+    </section>
+
+    <section class="card" id="health">
+      <p class="tag">🩺 স্বাস্থ্য ও বিজ্ঞান</p>
+      <h3>Health & Science</h3>
+      <p>এখানে স্বাস্থ্য ও বিজ্ঞানের খবর যুক্ত করা হবে।</p>
+    </section>
+  </main>
+
+  <footer>
+    NewsAI BD © 2026 | Smarter News for Everyone
+  </footer>
+
+  <script>
+    function searchNews() {
+      const query = document
+        .getElementById("search")
+        .value.toLowerCase();
+
+      document.querySelectorAll(".card").forEach(card => {
+        card.style.display =
+          card.innerText.toLowerCase().includes(query)
+            ? "block"
+            : "none";
+      });
+    }
+  </script>
+</body>
+</html>
